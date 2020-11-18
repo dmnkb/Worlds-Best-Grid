@@ -1,0 +1,32 @@
+{
+  "name": "dasweltbestegrid",
+  "version": "1.0.0",
+  "description": "The worldbest grid is Google's Material Design grid implementation brought in wonderful harmony with include media.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://DerWeltbesteNachbar@github.com/DerWeltbesteNachbar/DasWeltbesteGrid.git"
+  },
+  "keywords": [
+    "mdc-layout-grid",
+    "include-media"
+  ],
+  "author": "Dominik Borchert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DerWeltbesteNachbar/DasWeltbesteGrid/issues"
+  },
+  "homepage": "https://github.com/DerWeltbesteNachbar/DasWeltbesteGrid#readme",
+  "dependencies": {
+    "@material/layout-grid": "^8.0.0",
+    "include-media": "^1.4.9"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-dart-sass": "^1.0.2",
+    "node-sass": "^5.0.0"
+  }
+}
