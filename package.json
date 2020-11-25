@@ -1,6 +1,6 @@
 {
   "name": "dasweltbestegrid",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The worldbest grid is Google's Material Design grid implementation brought in wonderful harmony with include media.",
   "main": "index.js",
   "scripts": {
