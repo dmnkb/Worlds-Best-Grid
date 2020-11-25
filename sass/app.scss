@@ -19,26 +19,14 @@ $breakpoints: (
 		"size": 640px,
 		"class": "m"
 	),
-	large: (
-		"size": 1024px,
-		"class": "l"
-	),
-	xlarge: (
-		"size": 1200px,
-		"class": "xl"
-	),
-	xxlarge: (
-		"size": 1440px,
-		"class": "xxl"
-	),
 	iphone5: (
 		"size": 320px,
 		"class": "ip5"
 	),
 	iphonex: (
 		"size": 375px,
-		"class": "ipx"
-		),
+	"class": "ipx"
+	),
 	iphone11: (
 		"size": 414px,
 		"class": "ip11"
@@ -51,6 +39,10 @@ $breakpoints: (
 		"size": 810px,
 		"class": "ipad"
 	),
+	large: (
+		"size": 1024px,
+		"class": "l"
+	),
 	redmi-note-8: (
 		"size": 1080px,
 		"class": "rn8"
@@ -58,6 +50,14 @@ $breakpoints: (
 	galaxy-a51: (
 		"size": 1080px,
 		"class": "ga51"
+	),
+	xlarge: (
+		"size": 1200px,
+		"class": "xl"
+	),
+	xxlarge: (
+		"size": 1440px,
+		"class": "xxl"
 	)
 );
 
