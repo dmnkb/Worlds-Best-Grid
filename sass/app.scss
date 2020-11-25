@@ -1,30 +1,65 @@
-@import 'normalizecss/normalize';
-@import 'include-media/dist/_include-media.scss';
-@import '@material/layout-grid/mdc-layout-grid';
+@use "sass:map";
 
-/** 
- * Vars
- *
- * Comment in the breakpoints you want to use.
- * Make sure to adjust the generated grid classes 
- * at the bottom of this file accordingly.
- */
-
-$breakpoints: (
-	small: 0,
-	// medium: 640px,
-	// large: 1024px,
-	// xlarge: 1200px,
-	// xxlarge: 1440px,
-	// galaxys5: 360px,
-	// iphone5: 320px,
-	iphonex: 375px,
-	ipad: 768px,
-);
+@import "normalizecss/normalize";
+@import "include-media/dist/_include-media.scss";
+@import "@material/layout-grid/mdc-layout-grid";
 
 :root {
-	--mdc-layout-grid-gutter-desktop: 24px
+	--dwn-gutter: 24px;
+	// map dwn-gutter to material gutter
+	--mdc-layout-grid-gutter-desktop: var(--dwn-gutter);
 }
+
+$breakpoints: (
+	small: (
+		"size": 0px,
+		"class": "s"
+	),
+	medium: (
+		"size": 640px,
+		"class": "m"
+	),
+	large: (
+		"size": 1024px,
+		"class": "l"
+	),
+	xlarge: (
+		"size": 1200px,
+		"class": "xl"
+	),
+	xxlarge: (
+		"size": 1440px,
+		"class": "xxl"
+	),
+	iphone5: (
+		"size": 320px,
+		"class": "ip5"
+	),
+	iphonex: (
+		"size": 375px,
+		"class": "ipx"
+		),
+	iphone11: (
+		"size": 414px,
+		"class": "ip11"
+	),
+	iphone12: (
+		"size": 390px,
+		"class": "ip12"
+	),
+	ipad: (
+		"size": 810px,
+		"class": "ipad"
+	),
+	redmi-note-8: (
+		"size": 1080px,
+		"class": "rn8"
+	),
+	galaxy-a51: (
+		"size": 1080px,
+		"class": "ga51"
+	)
+);
 
 /**
  * Reset
@@ -55,54 +90,33 @@ html {
 .clearfix { @extend %clearfix; }
 
 /**
- * Grid classes
- */
-
-/** 
- * Generate column classes for breakpooints 
- * small, iphonex and ipad.
- * To add more comment in the device variables
- * at the beginning of this file. Then add the
- * corresponding col > .s-#<iterator> loops below.
- * Please ignore the 'desktop' arguments you see there.
- * mdc-layout-grid has it's own devices but we want to override
- * those with our own in order to increase flexibility.
+ * Generate grid classes procedually
  */
 
 .grid {
+
 	@extend %clearfix; 
-	@include mdc-layout-grid('desktop', 0);
+	@include mdc-layout-grid("desktop", 0);
 	padding-left: 0;
 	padding-right: 0;
-	&.padding {
-		@include media(">0")       { padding-top: 3em; padding-bottom: 3em; }
-		@include media(">iphonex") { padding-top: 6em; padding-bottom: 6em; }
-		@include media(">ipad")    { padding-top: 9em; padding-bottom: 9em; }
-	}
+	
 	& > .inner {
-		@include mdc-layout-grid-inner('desktop',12px, 0);
+
+		@include mdc-layout-grid-inner("desktop", 12px, 0);
+
 		& > .col {
-			@include media(">0") {
-				@for $i from 1 through 12 {
-					&.s-#{$i} {
-						@include mdc-layout-grid-cell('desktop', $i, 0);
-					}
-				}
-			}
-			@include media(">iphonex") {
-				@for $i from 1 through 12 {
-					&.m-#{$i} {
-						@include mdc-layout-grid-cell('desktop', $i, 0);
-					}
-				}
-			}
-			@include media(">ipad") {
-				@for $i from 1 through 12 {
-					&.l-#{$i} {
-						@include mdc-layout-grid-cell('desktop', $i, 0);
+			@each $breakpoint in map.keys($breakpoints) {
+				@debug "$breakpoint: #{map.get($breakpoints, $breakpoint, "size")} class: #{map.get($breakpoints, $breakpoint, "class")}";
+					@include media(">#{map.get($breakpoints, $breakpoint, "size")}") {
+					@for $i from 1 through 12 {
+						&.#{map.get($breakpoints, $breakpoint, "class")}-#{$i} {
+							@include mdc-layout-grid-cell("desktop", $i, 0);
+						}
 					}
 				}
 			}
 		}
+
 	}
+
 }
