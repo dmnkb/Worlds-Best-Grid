@@ -1,17 +1,81 @@
 # Das weltbeste Grid 🚁
-Das weltbeste Grid (world's best grid) is a wrapper of [mdc-layout-grid](https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid) and [include-media](https://github.com/eduardoboucas/include-media).
+Das weltbeste Grid (world's best grid) is a mobile-first lightweight and easy-to-use 12 columns responsive grid that covers breakpoints for most of currently common mobile devices. Under the hood it makes use of [mdc-layout-grid](https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid) and [include-media](https://github.com/eduardoboucas/include-media).
 
 ## Motivation
-For a small project I recently decided to explore the implementation of Google's Material Design components. The markup implementation of [mdc-layout-grid](https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid) is quite straightforward, however I don't like the required classes ```mdc-layout-grid__cell``` (Well, I guess I just don't like BEM) and the lack of flexibility regarding custom breakpoints (Only ```desktop```, ```tablet``` and ```phone``` are supported). Therefore I used the SASS mixin implementation instead (```mdc-layout-grid($size, $margin, $max-width)```) and created my own classes: ```col s-12 m-6 l-4```. In order to be able to add custom breakpoints (such as "iPhone 12" for instance) I added [include-media](https://github.com/eduardoboucas/include-media). Please note that I limited the current availability to ```s``` (>0), ```m``` (>iphonex) and ```l``` (>ipad) for the sake of simplicity. This can easily be altered and extended to more semantic classes like ```iphone12``` and so on. And, of course, since all classes are created using SASS loops, adding custom classes is as simple as adding something like this to sass/app.scss:
-```sass
-@include media(">iphonex") {
-  @for $i from 1 through 12 {
-    &.m-#{$i} {
-      @include mdc-layout-grid-cell('desktop', $i, 0)
-    }
-  }
-}
+Most responsive frameworks I used to work with have a couple of things in common: Limited amount of breakpoints (```small, medium, large```), complex classes (```mdc-layout-grid__cell```) and an unnecessary overhead.
+
+## Solution
+Using SASS loops in combination with [include-media](https://github.com/eduardoboucas/include-media) all breakpoint classes are generated procedurally. Adding new breakpoints is as easy as extending the ```$breakpoints``` list.
+
+## Example
+Say, you want a container to fill 9 / 12 columns when the user is using an iPhone 12:
+```html
+<div class="grid">
+  <div class="inner">
+    <div class="col ip12-9">
+      Content goes here
+    </div>
+  </div>
+</div>
 ```
+See? Simple.
+
+## Available breakpoints
+```
+$breakpoints: (
+  small: (
+    "size": 0px,
+    "class": "s"
+  ),
+  medium: (
+    "size": 640px,
+    "class": "m"
+   ),
+  large: (
+    "size": 1024px,
+    "class": "l"
+  ),
+  xlarge: (
+    "size": 1200px,
+    "class": "xl"
+  ),
+  xxlarge: (
+    "size": 1440px,
+    "class": "xxl"
+  ),
+  iphone5: (
+    "size": 320px,
+    "class": "ip5"
+  ),
+  iphonex: (
+    "size": 375px,
+    "class": "ipx"
+  ),
+  iphone11: (
+    "size": 414px,
+    "class": "ip11"
+  ),
+  iphone12: (
+    "size": 390px,
+    "class": "ip12"
+  ),
+  ipad: (
+    "size": 810px,
+    "class": "ipad"
+  ),
+  redmi-note-8: (
+    "size": 1080px,
+    "class": "rn8"
+  ),
+  galaxy-a51: (
+    "size": 1080px,
+    "class": "ga51"
+  )
+);
+```
+
+## Custom breakpoints
+In order to add custom breakpoints simply clone this project and extend the breakpoint list inside ```sass/app.scss```.
 
 ## Install
 #### NPM
