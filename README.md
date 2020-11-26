@@ -85,5 +85,8 @@ npm install dasweltbestegrid
 Or simply clone the GitHub repository.
 Then, include the file in your project using an ```@import``` statement.
 
+## Questions
+If you have questions regarding the grid or you would like to ask for another supported device, please let me know: [questions@dasweltbestegrid.de](mailto:questions@dasweltbestegrid.de)
+
 ## License
 This project is licensed under the terms of the [MIT license](https://github.com/eduardoboucas/include-media/blob/master/LICENSE.md).
