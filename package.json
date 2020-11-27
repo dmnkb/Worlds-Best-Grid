@@ -11,8 +11,15 @@
     "url": "git+https://DerWeltbesteNachbar@github.com/DerWeltbesteNachbar/DasWeltbesteGrid.git"
   },
   "keywords": [
-    "mdc-layout-grid",
-    "include-media"
+    "grid",
+    "mdc-layout-grid", 
+    "include-media", 
+    "custom-breakpoints", 
+    "sass", 
+    "mobile-first", 
+    "responsive", 
+    "lightweight", 
+    "12-columns"
   ],
   "author": "Dominik Borchert",
   "license": "MIT",
