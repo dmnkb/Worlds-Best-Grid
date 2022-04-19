@@ -1,5 +1,5 @@
-# Das weltbeste Grid 🚁
-Das weltbeste Grid (world's best grid) is a mobile-first lightweight and easy-to-use 12 columns responsive grid that covers breakpoints for most of currently common mobile devices. Under the hood it makes use of [mdc-layout-grid](https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid) and [include-media](https://github.com/eduardoboucas/include-media).
+# World's Best Grid 🚁
+This is a mobile-first lightweight and easy-to-use 12 columns responsive grid that covers breakpoints for most of currently common mobile devices. Under the hood it makes use of [mdc-layout-grid](https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid) and [include-media](https://github.com/eduardoboucas/include-media).
 
 ## Motivation
 Most responsive frameworks I used to work with have a couple of things in common: Limited amount of breakpoints (```small, medium, large```), complex classes (```mdc-layout-grid__cell```) and an unnecessary overhead.
@@ -84,9 +84,6 @@ npm install dasweltbestegrid
 ```
 Or simply clone the GitHub repository.
 Then, include the file in your project using an ```@import``` statement.
-
-## Questions
-If you have questions regarding the grid or you would like to ask for another supported device, please let me know: [questions@dasweltbestegrid.de](mailto:questions@dasweltbestegrid.de)
 
 ## License
 This project is licensed under the terms of the [MIT license](https://github.com/eduardoboucas/include-media/blob/master/LICENSE.md).
